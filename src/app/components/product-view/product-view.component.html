@@ -1,0 +1,45 @@
+<!-- <div class="container-fluid" style="background-color: black;">
+    <div class="row justify-content-center text-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="header">
+                <h3 style="color: whitesmoke;font-size: 23px;">Popular E-commerce Products</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+</div> -->
+<div class="container-fluid" style="background-color: black;">
+    <div class="row">
+        <div class="col-md-3 mt-3" *ngFor="let productdata of productsdata ">
+            <div class="card mt-2">
+                <div class="card-body">
+                    <div class="card-img-actions" >
+
+                        <img  routerLink="/productdetail/{{productdata.id}}"  src={{productdata.thumbnail}}
+                            class="card-img img-fluid">
+
+                    </div>
+                </div>
+                <div class="card-body bg-light text-center">
+                    <div>
+                        <h6 style="font-weight:bold">
+                            <a class="text-default">{{productdata.title}}</a>
+                        </h6>
+                    </div>
+                    <h3 class="mb-0 font-weight-semibold">${{productdata.price}}</h3>
+                    <button routerLink="/productdetail/{{productdata.id}}" class="btn btn-dark btn-sm mt-2"><i class="fa fa-solid fa-info mr-2 "></i>&nbsp;View
+                        Details</button>
+                    <button (click)="addtocart(productdata)" class="btn btn-warning btn-sm mt-2"><i class="fa fa-cart-plus mr-2 "></i>&nbsp;Add to Cart</button>
+                    <button (click)="removecart(productdata)" class="btn btn-danger btn-sm mt-2"><i class="fa fa-remove mr-2 "></i>&nbsp;Remove Item</button>
+                    
+                </div>
+
+
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
